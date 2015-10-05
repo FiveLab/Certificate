@@ -74,7 +74,7 @@ class X509Certificate
         $certificateInfo = openssl_x509_parse($certificateContent, true);
 
         if (false === $certificateInfo) {
-            throw new ErrorReadX509CertificateException('Error with parse certificate.');
+            throw ErrorReadX509CertificateException::withOpenSslError();
         }
 
         $this->name = $certificateInfo['name'];
@@ -206,6 +206,16 @@ class X509Certificate
         $now = new \DateTime();
 
         return $now < $this->getValidTo();
+    }
+
+    /**
+     * Is not valid this certificate
+     *
+     * @return bool
+     */
+    public function isNotValid()
+    {
+        return !$this->isValid();
     }
 
     /**

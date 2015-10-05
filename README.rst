@@ -36,9 +36,10 @@ License
 
 This library is under the MIT license. See the complete license in library
 
-```
-LICENSE
-```
+.. code-block:: text
+
+    LICENSE
+
 
 Reporting an issue or a feature request
 ---------------------------------------
